@@ -6,7 +6,7 @@ on :
       - main 
 
 Jobs :
-  Terraform-Validate :
+  terraform-validate :
     runs-on : ubuntu-latest
     steps :
       - uses: actions/checkout@v4
