@@ -1,21 +1,22 @@
-# .github/release.yml
+name : Tf Jobs
 
-changelog:
-  exclude:
-    labels:
-      - ignore-for-release
-    authors:
-      - AnkurMore
-  categories:
-    - title: Breaking Changes 🛠
-      labels:
-        - Semver-Major
-        - breaking-change
-    - title: Exciting New Features 🎉
-      labels:
-        - Semver-Minor
-        - enhancement
-    - title: Other Changes
-      labels:
-        - "*"
+on :
+  pull_request:
+    branches :
+      - main 
 
+Jobs :
+  Terraform-Validate :
+    runs-on : ubuntu-latest
+    steps :
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+
+    - name: Terraform format
+        id: fmt
+        run: terraform fmt -check
+        continue-on-error: true
+
+    - name : Tf Validate 
+      id : vld
+      run : terraform validate -no-color 
