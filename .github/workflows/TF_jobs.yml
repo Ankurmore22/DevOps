@@ -2,13 +2,13 @@ name : Tf Jobs
 
 on :
   pull_request:
-    branches :
+    branches:
       - main 
 
-jobs :
-  terraform-validate :
-    runs-on : ubuntu-latest
-    steps :
+jobs:
+  terraform-validate:
+    runs-on: ubuntu-latest
+    steps:
       - uses: actions/checkout@v4
       - uses: hashicorp/setup-terraform@v3
 
@@ -17,7 +17,7 @@ jobs :
         run: terraform fmt -check
         continue-on-error: true
 
-      - name : Tf Validate 
+      - name: Tf Validate 
         id: vld
         run: terraform validate -no-color 
     
