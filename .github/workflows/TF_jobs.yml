@@ -1,4 +1,4 @@
-name : Tf Jobs
+name: Tf Jobs
 
 on :
   pull_request:
