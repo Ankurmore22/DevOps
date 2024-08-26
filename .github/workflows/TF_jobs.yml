@@ -12,12 +12,12 @@ jobs :
       - uses: actions/checkout@v4
       - uses: hashicorp/setup-terraform@v3
 
-    - name: Terraform format
+      - name: Terraform format
         id: fmt
         run: terraform fmt -check
         continue-on-error: true
 
-    - name : Tf Validate 
-      id : vld
-      run : terraform validate -no-color 
+      - name : Tf Validate 
+        id: vld
+        run: terraform validate -no-color 
     
